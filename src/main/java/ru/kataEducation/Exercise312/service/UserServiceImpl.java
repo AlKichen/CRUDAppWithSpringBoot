@@ -6,6 +6,7 @@ import ru.kataEducation.Exercise312.dao.UserDao;
 import ru.kataEducation.Exercise312.model.User;
 
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -24,6 +25,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void createNewUser(User user) {
         userDao.createNewUser(user);
     }
@@ -34,11 +36,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void updateUser(Long id, User updatedUser) {
         userDao.updateUser(id, updatedUser);
     }
 
     @Override
+    @Transactional
     public void deleteUser(Long id) {
         userDao.deleteUser(id);
     }
